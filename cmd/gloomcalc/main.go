@@ -26,9 +26,11 @@ func main() {
 		a := baseMerchant(merchant)
 		printResult(merchant, a)
 	}
-	if hs > 0 {
+	if hs > 0 && hs < 22 {
 		a := customMerchant(hs, unburn)
 		printResult("Custom", a)
+	} else {
+		fmt.Printf("hand size should be more than 0 and less than 22\n")
 	}
 }
 
@@ -53,6 +55,7 @@ func baseMerchant(m string) (a *calc.Answer) {
 }
 
 func customMerchant(hs uint64, unburn bool) *calc.Answer {
+	// "21 cards in hand ought to be enough for anybody." (c) Bill Gates, 1981
 	return calc.Rounds(merchants.NewDummy(uint8(hs), unburn))
 }
 
