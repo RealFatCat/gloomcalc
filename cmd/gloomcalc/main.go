@@ -42,6 +42,10 @@ func baseMerchant(m string) (a *calc.Answer) {
 		a = calc.Rounds(merchants.NewTinkerer())
 	case "spellweaver":
 		a = calc.Rounds(merchants.NewSpellweaver())
+	case "mindthief":
+		a = calc.Rounds(merchants.NewMindthief())
+	case "craigheart":
+		a = calc.Rounds(merchants.NewCraigheart())
 	default:
 		return nil
 	}
