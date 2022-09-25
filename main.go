@@ -26,11 +26,13 @@ func main() {
 		a := baseMerchant(merchant)
 		printResult(merchant, a)
 	}
-	if hs > 0 && hs < 22 {
-		a := customMerchant(hs, unburn)
-		printResult("Custom", a)
-	} else {
-		fmt.Printf("hand size should be more than 0 and less than 22\n")
+	if hs > 0 {
+		if hs < 22 {
+			a := customMerchant(hs, unburn)
+			printResult("Custom", a)
+		} else {
+			fmt.Printf("hand size should be more than 0 and less than 22\n")
+		}
 	}
 }
 
@@ -61,7 +63,7 @@ func customMerchant(hs uint64, unburn bool) *calc.Answer {
 
 func printResult(merchant string, a *calc.Answer) {
 	if a != nil {
-		fmt.Printf("%s\nLong Only:\t%d\nShort Only:\t%d\nPerc:\t%f\n", merchant, a.Long(), a.Short(), a.Perc())
+		fmt.Printf("%s:\nLong Only:\t%d\nShort Only:\t%d\nPerc:\t%f\n", merchant, a.Long(), a.Short(), a.Perc())
 	} else {
 		fmt.Println("Unknown merchant")
 	}

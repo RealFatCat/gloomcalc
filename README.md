@@ -1,1 +1,1 @@
-Basic calc for number of rounds in gloomhaven.
+Basic calc for maximum number of rounds in gloomhaven.
